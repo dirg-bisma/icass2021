@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="expires" content="-1" />
+<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
+<title>ICASS</title>
+<style type="text/css">
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+</style>
+
+</head>
+<script src="html5-qrcode.min.js"></script>
+<body>
+
+<div id="reader" width="600px"></div>
+<br>
+<div class="login-logo" style="margin:center;text-align:center">
+	<a href="#">
+		<img src="logo.png" style="margin:center">
+	</a>
+</div>
+
+<script type="text/javascript">
+function redirectPost(url, data) {
+    var form = document.createElement('form');
+    document.body.appendChild(form);
+    form.method = 'post';
+    form.action = url;
+	var username = document.createElement('input');
+	username.type = 'hidden';
+	username.name = 'username';
+	username.value = data;
+	
+	var password = document.createElement('input');
+	password.type = 'hidden';
+	password.name = 'password';
+	password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+	form.appendChild(input);
+    form.submit();
+}
+const html5QrCode = new Html5Qrcode(/* element id */ "reader");
+html5QrCode.start(
+  { facingMode: "environment" }, 
+  {
+    fps: 10,    // Optional, frame per seconds for qr code scanning
+    qrbox: 250  // Optional, if you want bounded box UI
+  },
+  (decodedText, decodedResult) => {
+    // do something when code is read
+	window.alert("text : " + decodedText);
+	redirectPost("test.php",decodedText);
+  },
+  (errorMessage) => {
+    // parse error, ignore it.
+  })
+.catch((err) => {
+  // Start failed, handle it.
+});
+//-->
+</script>
+</body>
+</html>
