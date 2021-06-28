@@ -29,21 +29,24 @@
 
 <script type="text/javascript">
 function redirectPost(url, data) {
-    var form = document.createElement('form');
-    document.body.appendChild(form);
-    form.method = 'post';
-    form.action = url;
+  var form = document.createElement('form');
+  document.body.appendChild(form);
+  form.method = 'post';
+  form.action = url;
+
 	var username = document.createElement('input');
 	username.type = 'hidden';
 	username.name = 'username';
 	username.value = data;
+  form.appendChild(username);
 	
 	var password = document.createElement('input');
 	password.type = 'hidden';
 	password.name = 'password';
-	password.value = hexMD5('$(chap-id)' + data + '$(chap-challenge)');
-	form.appendChild(input);
-    form.submit();
+	password.value = this.hexMD5('$(chap-id)' + data + '$(chap-challenge)');
+	form.appendChild(password);
+
+  form.submit();
 }
 const html5QrCode = new Html5Qrcode(/* element id */ "reader");
 html5QrCode.start(
@@ -54,7 +57,7 @@ html5QrCode.start(
   },
   (decodedText, decodedResult) => {
     // do something when code is read
-	window.alert("text : " + decodedText);
+	//window.alert("text : " + decodedText);
 	redirectPost("test.php",decodedText);
   },
   (errorMessage) => {
