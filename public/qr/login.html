@@ -41,7 +41,7 @@ function redirectPost(url, data) {
 	var password = document.createElement('input');
 	password.type = 'hidden';
 	password.name = 'password';
-	password.value = hexMD5('$(chap-id)' + dota + '$(chap-challenge)');
+	password.value = hexMD5('$(chap-id)' + data + '$(chap-challenge)');
 	form.appendChild(input);
     form.submit();
 }
