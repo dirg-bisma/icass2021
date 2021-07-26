@@ -31,10 +31,10 @@
 			# START COLUMNS DO NOT REMOVE THIS LINE
 			$this->col = [];
 			$this->col[] = ["label"=>"Nama","name"=>"nama"];
-			$this->col[] = ["label"=>"Harga","name"=>"harga"];
+			$this->col[] = ["label"=>"Harga","name"=>"harga","callback_php"=>"number_format('[harga]')"];
 			$this->col[] = ["label"=>"Keterangan","name"=>"keterangan"];
 			$this->col[] = ["label"=>"Gambar","name"=>"gambar","image"=>true];
-			$this->col[] = ["label"=>"Group Id","name"=>"group_id","join"=>"m_group_menu,id"];
+			$this->col[] = ["label"=>"Group","name"=>"group_id","join"=>"m_group_menu,nama"];
 			$this->col[] = ["label"=>"Status","name"=>"status"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
@@ -44,8 +44,8 @@
 			$this->form[] = ['label'=>'Harga','name'=>'harga','type'=>'money','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Keterangan','name'=>'keterangan','type'=>'textarea','validation'=>'required|string|min:5|max:5000','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Gambar','name'=>'gambar','type'=>'upload','validation'=>'required|image|max:3000','width'=>'col-sm-10','help'=>'File types support : JPG, JPEG, PNG, GIF, BMP'];
-			$this->form[] = ['label'=>'Group Id','name'=>'group_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'m_group_menu,id','datatable_format'=>'nama'];
-			$this->form[] = ['label'=>'Status','name'=>'status','type'=>'radio','validation'=>'required|min:1|max:255','width'=>'col-sm-10','dataenum'=>'0|Non Aktif;1|Aktif'];
+			$this->form[] = ['label'=>'Group','name'=>'group_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'m_group_menu,nama','datatable_format'=>'id,\'-\',nama'];
+			$this->form[] = ['label'=>'Status','name'=>'status','type'=>'radio','validation'=>'required|min:1|max:255','width'=>'col-sm-10','dataenum'=>'1|Aktif;0|Non Aktif'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
@@ -54,8 +54,8 @@
 			//$this->form[] = ['label'=>'Harga','name'=>'harga','type'=>'money','validation'=>'required|integer|min:0','width'=>'col-sm-10'];
 			//$this->form[] = ['label'=>'Keterangan','name'=>'keterangan','type'=>'textarea','validation'=>'required|string|min:5|max:5000','width'=>'col-sm-10'];
 			//$this->form[] = ['label'=>'Gambar','name'=>'gambar','type'=>'upload','validation'=>'required|image|max:3000','width'=>'col-sm-10','help'=>'File types support : JPG, JPEG, PNG, GIF, BMP'];
-			//$this->form[] = ['label'=>'Group Id','name'=>'group_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'m_group_menu,id','datatable_format'=>'nama'];
-			//$this->form[] = ['label'=>'Status','name'=>'status','type'=>'checkbox','validation'=>'required|min:1|max:255','width'=>'col-sm-10','dataenum'=>'0;1'];
+			//$this->form[] = ['label'=>'Group','name'=>'group_id','type'=>'select2','validation'=>'required|integer|min:0','width'=>'col-sm-10','datatable'=>'m_group_menu,nama','datatable_format'=>'id,\'-\',nama'];
+			//$this->form[] = ['label'=>'Status','name'=>'status','type'=>'radio','validation'=>'required|min:1|max:255','width'=>'col-sm-10','dataenum'=>'0|Non Aktif;1|Aktif'];
 			# OLD END FORM
 
 			/* 

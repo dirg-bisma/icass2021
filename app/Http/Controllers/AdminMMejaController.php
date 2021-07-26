@@ -34,7 +34,6 @@
 			$this->col[] = ["label"=>"Keterangan","name"=>"keterangan"];
 			$this->col[] = ["label"=>"Kapasitas","name"=>"kapasitas"];
 			$this->col[] = ["label"=>"Status","name"=>"status"];
-			$this->col[] = ["label"=>"Pesanan Id","name"=>"pesanan_id","join"=>"t_pesanan,id"];
 			# END COLUMNS DO NOT REMOVE THIS LINE
 
 			# START FORM DO NOT REMOVE THIS LINE
@@ -43,7 +42,6 @@
 			$this->form[] = ['label'=>'Keterangan','name'=>'keterangan','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Kapasitas','name'=>'kapasitas','type'=>'number','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
 			$this->form[] = ['label'=>'Status','name'=>'status','type'=>'radio','validation'=>'required|min:1|max:255','width'=>'col-sm-10','dataenum'=>'0|Non Aktif;1|Aktif'];
-			$this->form[] = ['label'=>'Pesanan Id','name'=>'pesanan_id','type'=>'hidden','validation'=>'integer|min:0','width'=>'col-sm-10'];
 			# END FORM DO NOT REMOVE THIS LINE
 
 			# OLD START FORM
@@ -51,7 +49,7 @@
 			//$this->form[] = ['label'=>'Nama','name'=>'nama','type'=>'text','validation'=>'required|string|min:3|max:70','width'=>'col-sm-10','placeholder'=>'masukan Nama Meja'];
 			//$this->form[] = ['label'=>'Keterangan','name'=>'keterangan','type'=>'text','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
 			//$this->form[] = ['label'=>'Kapasitas','name'=>'kapasitas','type'=>'number','validation'=>'required|min:1|max:255','width'=>'col-sm-10'];
-			//$this->form[] = ['label'=>'Status','name'=>'status','type'=>'checkbox','validation'=>'required|min:1|max:255','width'=>'col-sm-10','dataenum'=>'0;1'];
+			//$this->form[] = ['label'=>'Status','name'=>'status','type'=>'radio','validation'=>'required|min:1|max:255','width'=>'col-sm-10','dataenum'=>'0|Non Aktif;1|Aktif'];
 			//$this->form[] = ['label'=>'Pesanan Id','name'=>'pesanan_id','type'=>'hidden','validation'=>'integer|min:0','width'=>'col-sm-10'];
 			# OLD END FORM
 
