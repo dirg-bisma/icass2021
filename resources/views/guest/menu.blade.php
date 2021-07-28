@@ -413,7 +413,7 @@ order.push({info :{customer:"{{ Session::get('customer') }}", meja:"{{ Session::
             localStorage.setItem('pesanan', JSON.stringify(itemID));
             alert("Pesanan Anda telah kami terima, Terima kasih.");
             console.log(json);
-            //location.reload();
+            location.reload();
         }
     });
 
