@@ -60,7 +60,6 @@ class KasirController extends Controller{
         $query = DB::table('m_meja')->where('customer', $customer)->where('nama', $meja)
         ->update(['status'=> '0', 'pesanan_id'=> 'null', 'customer' => 'null']);
         if($query){
-
         }
     }
 }

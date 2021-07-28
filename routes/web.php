@@ -28,3 +28,4 @@ Route::get('/kasir/sale', [KasirController::class, 'sale'])->name('kasir-sale');
 Route::get('/kasir/rekap', [KasirController::class, 'rekap'])->name('kasir-sale');
 Route::post('/kasir/bayar', [KasirController::class, 'bayar'])->name('kasir-bayar');
 Route::get('/kasir/print', [KasirController::class, 'printstruk'])->name('kasir-print');
+

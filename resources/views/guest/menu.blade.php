@@ -92,7 +92,6 @@
             </div>
         </div>
     </div>
-
     <div class="fixed-bottom">
         <input type="hidden" name="total_item" id="total_item" value="0">
         <input type="hidden" name="total_harga" id="total_harga" value="0">
