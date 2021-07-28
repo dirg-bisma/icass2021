@@ -70,7 +70,7 @@ class GuestCustomerController extends Controller{
         }
 
 
-        if($meja->pesanan_id != "" || $meja->pesanan_id != ""){
+        if($meja->pesanan_id != "" || $meja->pesanan_id != "0"){
 
             $urutan = DB::table('t_pesanan_detail')->select(DB::raw('MAX(urutan) as urutan'))->where('t_pesanan_id', $meja->pesanan_id)->first();
             for($i=0;$i<count($jmlPesanan);$i++){
