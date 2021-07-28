@@ -42,8 +42,16 @@ class GuestCustomerController extends Controller{
 
     public function menu(Request $request)
     {
-        if($request->session()->get('meja') && $request->session()->get('customer')){
-            return view('guest.menu');
+        if($request->session()->get('meja') && $request->session()->get('customer') ){
+            $idmeja = $request->session()->get('idmeja');
+            $meja = $request->session()->get('meja');
+            $customer = $request->session()->get('customer');
+            $cekMeja = DB::table('m_meja')->where('id', $idmeja)->where('customer', $customer)->first();
+            if($cekMeja->customer == ""){
+                return redirect('logout');
+            }else{
+                return view('guest.menu');
+            }
         }else{
             return redirect()->route('welcome');
         }
@@ -62,10 +70,10 @@ class GuestCustomerController extends Controller{
         }
 
 
-        if($meja->pesanan_id != ""){
-            for($i=0;$i<count($jmlPesanan);$i++){
-                $urutan = DB::table('t_pesanan_detail')->select(DB::raw('MAX(urutan) as urutan'))->where('t_pesanan_id', $meja->pesanan_id)->first();
+        if($meja->pesanan_id != "" || $meja->pesanan_id != ""){
 
+            $urutan = DB::table('t_pesanan_detail')->select(DB::raw('MAX(urutan) as urutan'))->where('t_pesanan_id', $meja->pesanan_id)->first();
+            for($i=0;$i<count($jmlPesanan);$i++){
                 DB::table('t_pesanan_detail')->insert([
                     't_pesanan_id' => $meja->pesanan_id,
                     'm_menu_id' => $pesanan[0]['item'][$i]['id'],
